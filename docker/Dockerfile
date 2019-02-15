@@ -70,5 +70,6 @@ RUN mkdir /home/docker/.PyCharm \
 RUN (sudo apt-get update)
 RUN (sudo apt-get install -y xfce4)
 RUN (sudo apt-get install -y xfce4-terminal)
+RUN (sudo apt-get install -y vim)
 EXPOSE 22
 ENTRYPOINT ["/start-sshd.sh"]
