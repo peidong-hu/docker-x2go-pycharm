@@ -71,5 +71,13 @@ RUN (sudo apt-get update)
 RUN (sudo apt-get install -y xfce4)
 RUN (sudo apt-get install -y xfce4-terminal)
 RUN (sudo apt-get install -y vim)
+RUN (mkdir ~/git)
+ADD ./switchShell.sh /home/docker/switchShell.sh
+ADD ./switchShell.sh /home/docker/Desktop/switchShell.sh
+RUN (sudo pip3 install virtualenv)
+RUN (sudo mkdir ~/.virtualenvs)
+RUN (sudo pip install virtualenvwrapper)
+ENV WORKON_HOME=~/.virtualenvs
+RUN (echo ". /usr/local/bin/virtualenvwrapper.sh" >> /home/docker/.bashrc)
 EXPOSE 22
 ENTRYPOINT ["/start-sshd.sh"]
