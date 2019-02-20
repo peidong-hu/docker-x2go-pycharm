@@ -79,5 +79,8 @@ RUN (sudo mkdir ~/.virtualenvs)
 RUN (sudo pip install virtualenvwrapper)
 ENV WORKON_HOME=~/.virtualenvs
 RUN (echo ". /usr/local/bin/virtualenvwrapper.sh" >> /home/docker/.bashrc)
+ADD ./startPycharm.sh /home/docker/startPycharm.sh
+ADD ./startPycharm.sh /home/docker/Desktop/startPycharm.sh
+
 EXPOSE 22
 ENTRYPOINT ["/start-sshd.sh"]
